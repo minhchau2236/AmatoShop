@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Baby.Data.Entities" assembly="PSCPortal.DB">
+    <class name="PSCPortal.DB.Entities.City" table="[dbo].[tblCities]" >
+        <id name="CityID" column="[CityID]" type="AnsiString" length="20" >
+            <generator class="assigned" />
+        </id>
+        <property name="CityName" column="[CityName]" type="String" not-null="false" length="255" /> 
+    </class>
+</hibernate-mapping>

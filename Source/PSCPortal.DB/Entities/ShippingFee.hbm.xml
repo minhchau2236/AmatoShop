@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Baby.Data.Entities" assembly="PSCPortal.DB">
+  <class name="PSCPortal.DB.Entities.ShippingFeE" table="[dbo].[tblShippingFees]" >
+    <id name="ShippingFeeID" column="[ShippingFeeID]" type="Int32" >
+      <generator class="native" />
+    </id>
+    <property name="CityID" column="[CityID]" type="AnsiString" not-null="false" length="20" />
+    <property name="DistrictID" column="[DistrictID]" type="AnsiString" not-null="false" length="20" />
+    <property name="ShippingFee" column="[ShippingFee]" type="Decimal" not-null="false" />
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Baby.Data.Entities" assembly="PSCPortal.DB">
+    <class name="PSCPortal.DB.Entities.Log" table="[dbo].[tblLogs]" >
+        <id name="LogId" column="[LogId]" type="Int32" >
+            <generator class="native" />
+        </id>
+        <property name="MachineName" column="[MachineName]" type="String" not-null="false" length="255" /> 
+        <property name="MachineIP" column="[MachineIP]" type="String" not-null="false" /> 
+        <property name="Script" column="[Script]" type="String" not-null="false" /> 
+        <property name="ExcuteDate" column="[ExcuteDate]" type="DateTime" not-null="false" /> 
+        <property name="MethodName" column="[MethodName]" type="String" not-null="false" length="255" /> 
+        <property name="Result" column="[Result]" type="String" not-null="false" /> 
+    </class>
+</hibernate-mapping>

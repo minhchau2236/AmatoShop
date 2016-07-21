@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="PSCPortal.Data.Entities" assembly="PSCPortal.DB">
+    <class name="PSCPortal.DB.Entities.BillPaymentPhoto" table="[dbo].[tblBillPaymentPhotos]" >
+       <composite-id name="Identifier" class="PSCPortal.DB.Entities.BillPaymentPhotoIdenfifier">
+        <key-property name="BillPaymentNumber" column="BillPaymentNumber" />
+        <key-property name="PhotoId" column="PhotoID"  />
+      </composite-id>    
+      <!--<composite-id>
+            <key-property name="BillPaymentNumber" column="[BillPaymentNumber]" type="Int32" /> 
+            <key-property name="PhotoID" column="[PhotoID]" type="Int32" /> 
+        </composite-id>-->
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Baby.Data.Entities" assembly="PSCPortal.DB">
+    <class name="PSCPortal.DB.Entities.CustomerBaby" table="[dbo].[tblCustomerBabies]" >
+        <id name="BabyID" column="[BabyID]" type="Int32" >
+            <generator class="native" />
+        </id>
+        <property name="BabyName" column="[BabyName]" type="String" not-null="false" length="255" /> 
+        <property name="NickName" column="[NickName]" type="String" not-null="false" length="100" /> 
+        <property name="DateOfBirth" column="[DateOfBirth]" type="DateTime" not-null="false" /> 
+        <property name="Gender" column="[Gender]" type="Boolean" not-null="false" /> 
+        <property name="LastUpdateDate" column="[LastUpdateDate]" type="DateTime" not-null="false" /> 
+        <property name="LastUpdateBy" column="[LastUpdateBy]" type="Int32" not-null="false" /> 
+        <many-to-one name="Customer" class="PSCPortal.DB.Entities.Customer" not-null="false" >
+            <column name="[CustomerID]" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

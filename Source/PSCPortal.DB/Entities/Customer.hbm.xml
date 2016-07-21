@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Baby.Data.Entities" assembly="PSCPortal.DB">
+    <class name="PSCPortal.DB.Entities.Customer" table="[dbo].[tblCustomers]" >
+        <id name="CustomerID" column="[CustomerID]" type="Int32" >
+            <generator class="native" />
+        </id>
+        <property name="CustomerCode" column="[CustomerCode]" type="AnsiString" not-null="true" length="50" /> 
+        <property name="CustomerName" column="[CustomerName]" type="String" not-null="false" length="255" /> 
+        <property name="DateOfBirth" column="[DateOfBirth]" type="AnsiString" not-null="false" length="20" /> 
+        <property name="Gender" column="[Gender]" type="Int32" not-null="false" /> 
+        <property name="PhoneNumber" column="[PhoneNumber]" type="String" not-null="false" length="255" /> 
+        <property name="Email" column="[Email]" type="AnsiString" not-null="false" length="255" /> 
+        <property name="IdentityNumber" column="[IdentityNumber]" type="AnsiString" not-null="false" length="50" /> 
+        <property name="BankAccount" column="[BankAccount]" type="String" not-null="false" length="255" /> 
+        <property name="LastAccessDate" column="[LastAccessDate]" type="DateTime" not-null="false" /> 
+        <property name="AllowReceiveEmail" column="[AllowReceiveEmail]" type="Boolean" not-null="false" /> 
+        <property name="Pw" column="[PW]" type="AnsiString" not-null="false" length="50" /> 
+        <property name="ShippingContact" column="[ShippingContact]" type="String" not-null="false" length="255" /> 
+        <property name="ShippingAddress" column="[ShippingAddress]" type="String" not-null="false" length="1000" /> 
+        <property name="ShippingCityID" column="[ShippingCityID]" type="AnsiString" not-null="false" length="20" /> 
+        <property name="ShippingDistrictID" column="[ShippingDistrictID]" type="AnsiString" not-null="false" length="20" /> 
+        <property name="ShippingPhone" column="[ShippingPhone]" type="String" not-null="false" length="255" /> 
+        <property name="ShippingNote" column="[ShippingNote]" type="String" not-null="false" /> 
+        <property name="LastUpdateDate" column="[LastUpdateDate]" type="DateTime" not-null="false" /> 
+        <property name="LastUpdateBy" column="[LastUpdateBy]" type="Int32" not-null="false" /> 
+        <many-to-one name="CustomerGroup" class="PSCPortal.DB.Entities.CustomerGroup" not-null="false" >
+            <column name="[CustomerGroupID]" />
+        </many-to-one>
+        <bag name="BillList" inverse="true" cascade="all-delete-orphan" lazy="true" >
+            <key>
+                <column name="[CustomerID]" />
+            </key>
+            <one-to-many class="PSCPortal.DB.Entities.Bill" />
+        </bag>
+        <bag name="CustomerBabyList" inverse="true" cascade="all-delete-orphan" lazy="true" >
+            <key>
+                <column name="[CustomerID]" />
+            </key>
+            <one-to-many class="PSCPortal.DB.Entities.CustomerBaby" />
+        </bag>
+    </class>
+</hibernate-mapping>

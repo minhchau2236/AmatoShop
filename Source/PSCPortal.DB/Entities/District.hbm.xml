@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="PSCPortal.Data.Entities" assembly="PSCPortal.DB">
+    <class name="PSCPortal.DB.Entities.District" table="[dbo].[tblDistricts]" >
+      <composite-id name="Identifier" class="PSCPortal.DB.Entities.DistrictIdenfifier">
+        <key-property name="CityId" column="CityID" />
+        <key-property name="DistrictId" column="DistrictID"  />
+      </composite-id>
+        <property name="DistrictName" column="[DistrictName]" type="String" not-null="false" length="255" /> 
+    </class>
+</hibernate-mapping>

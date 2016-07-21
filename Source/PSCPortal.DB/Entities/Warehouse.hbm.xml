@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Baby.Data.Entities" assembly="PSCPortal.DB">
+    <class name="PSCPortal.DB.Entities.Warehouse" table="[dbo].[tblWarehouses]" >
+        <id name="WarehouseID" column="[WarehouseID]" type="Int32" >
+            <generator class="native" />
+        </id>
+        <property name="WarehouseNumber" column="[WarehouseNumber]" type="String" not-null="true" length="50" /> 
+        <property name="FoundedDate" column="[FoundedDate]" type="DateTime" not-null="false" /> 
+        <property name="WarehousedDate" column="[WarehousedDate]" type="DateTime" not-null="false" /> 
+        <property name="PurchasedDate" column="[PurchasedDate]" type="DateTime" not-null="false" /> 
+        <property name="PurchasedBy" column="[PurchasedBy]" type="String" not-null="false" length="255" /> 
+        <property name="Note" column="[Note]" type="String" not-null="false" /> 
+        <property name="TotalAmount" column="[TotalAmount]" type="Decimal" not-null="false" /> 
+        <property name="DiscountPercent" column="[DiscountPercent]" type="Decimal" not-null="false" /> 
+        <property name="DiscountAmount" column="[DiscountAmount]" type="Decimal" not-null="false" /> 
+        <property name="Locked" column="[Locked]" type="Boolean" not-null="false" /> 
+        <property name="CreatedDate" column="[CreatedDate]" type="DateTime" not-null="false" /> 
+        <property name="CreatedBy" column="[CreatedBy]" type="Int32" not-null="false" /> 
+        <property name="LastUpdateDate" column="[LastUpdateDate]" type="DateTime" not-null="false" /> 
+        <property name="LastUpdateBy" column="[LastUpdateBy]" type="Int32" not-null="false" /> 
+        <many-to-one name="Supplier" class="PSCPortal.DB.Entities.Supplier" not-null="false" >
+            <column name="[SupplierID]" />
+        </many-to-one>
+        <bag name="WarehouseDetailList" inverse="true" cascade="all-delete-orphan" lazy="true" >
+            <key>
+                <column name="[WarehouseID]" />
+            </key>
+            <one-to-many class="PSCPortal.DB.Entities.WarehouseDetail" />
+        </bag>
+        <bag name="WarehousePaymentList" inverse="true" cascade="all-delete-orphan" lazy="true" >
+            <key>
+                <column name="[WarehouseID]" />
+            </key>
+            <one-to-many class="PSCPortal.DB.Entities.WarehousePayment" />
+        </bag>
+        <bag name="WarehousePhotoList" inverse="true" cascade="all-delete-orphan" lazy="true" >
+            <key>
+                <column name="[WarehouseID]" />
+            </key>
+            <one-to-many class="PSCPortal.DB.Entities.WarehousePhoto" />
+        </bag>
+    </class>
+</hibernate-mapping>

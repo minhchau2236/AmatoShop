@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Baby.Data.Entities" assembly="PSCPortal.DB">
+    <class name="PSCPortal.DB.Entities.TransactionType" table="[dbo].[tblTransactionTypes]" >
+        <id name="TransactionTypeID" column="[TransactionTypeID]" type="AnsiString" length="20" >
+            <generator class="assigned" />
+        </id>
+        <property name="TransactionTypeName" column="[TransactionTypeName]" type="String" not-null="false" length="255" /> 
+        <property name="IsNegative" column="[IsNegative]" type="Boolean" not-null="false" /> 
+        <property name="Note" column="[Note]" type="String" not-null="false" /> 
+        <property name="RelativeTableName" column="[RelativeTableName]" type="AnsiString" not-null="false" length="50" /> 
+        <bag name="TransactionList" inverse="true" cascade="all-delete-orphan" lazy="true" >
+            <key>
+                <column name="[TransactionTypeID]" />
+            </key>
+            <one-to-many class="PSCPortal.DB.Entities.Transaction" />
+        </bag>
+    </class>
+</hibernate-mapping>

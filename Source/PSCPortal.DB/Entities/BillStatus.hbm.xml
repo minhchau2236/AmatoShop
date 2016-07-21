@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Baby.Data.Entities" assembly="PSCPortal.DB">
+    <class name="PSCPortal.DB.Entities.BillStatus" table="[dbo].[tblBillStatus]" >
+      <composite-id name="Identifier" class="PSCPortal.DB.Entities.BillStatusIdenfifier">
+        <key-property name="BillId" column="BillID" />
+        <key-property name="BillStatus" column="BillStatus"  />
+      </composite-id>
+      <!--<composite-id>
+            <key-property name="BillStatus" column="[BillStatus]" type="Int32" /> 
+            <key-many-to-one name="Bill" class="PSCPortal.DB.Entities.Bill" >
+                <column name="[BillID]" />
+            </key-many-to-one>
+        </composite-id>-->
+        <property name="StatusDate" column="[StatusDate]" type="DateTime" not-null="false" /> 
+        <property name="Note" column="[Note]" type="String" not-null="false" /> 
+    </class>
+</hibernate-mapping>

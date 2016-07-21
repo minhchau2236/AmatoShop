@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Baby.Data.Entities" assembly="PSCPortal.DB">
+    <class name="PSCPortal.DB.Entities.ProductReview" table="[dbo].[tblProductReviews]" >
+        <id name="ProductReviewID" column="[ProductReviewID]" type="Int32" >
+            <generator class="native" />
+        </id>
+        <property name="Email" column="[Email]" type="AnsiString" not-null="false" length="255" /> 
+        <property name="CustomerName" column="[CustomerName]" type="String" not-null="false" length="255" /> 
+        <property name="PhoneNumber" column="[PhoneNumber]" type="String" not-null="false" length="255" /> 
+        <property name="ReviewContent" column="[ReviewContent]" type="String" not-null="false" /> 
+        <property name="SentDate" column="[SentDate]" type="DateTime" not-null="false" /> 
+        <property name="ReviewReply" column="[ReviewReply]" type="String" not-null="false" /> 
+        <property name="ReplyDate" column="[ReplyDate]" type="DateTime" not-null="false" /> 
+        <property name="ReplyBy" column="[ReplyBy]" type="Int32" not-null="false" /> 
+        <property name="ShowOnWeb" column="[ShowOnWeb]" type="Boolean" not-null="false" /> 
+        <many-to-one name="Product" class="PSCPortal.DB.Entities.Product" not-null="false" >
+            <column name="[ProductID]" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

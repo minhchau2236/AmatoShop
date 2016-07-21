@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Baby.Data.Entities" assembly="PSCPortal.DB">
+    <class name="PSCPortal.DB.Entities.WarehouseDetail" table="[dbo].[tblWarehouseDetails]" >
+        <composite-id>
+            <key-many-to-one name="Warehouse" class="PSCPortal.DB.Entities.Warehouse" >
+                <column name="[WarehouseID]" />
+            </key-many-to-one>
+            <key-many-to-one name="Product" class="PSCPortal.DB.Entities.Product" >
+                <column name="[ProductID]" />
+            </key-many-to-one>
+        </composite-id>
+        <property name="Quantity" column="[Quantity]" type="Decimal" not-null="false" /> 
+        <property name="Price" column="[Price]" type="Decimal" not-null="false" /> 
+        <property name="DiscountPercent" column="[DiscountPercent]" type="Decimal" not-null="false" /> 
+        <property name="DiscountAmount" column="[DiscountAmount]" type="Decimal" not-null="false" /> 
+        <property name="Note" column="[Note]" type="String" not-null="false" /> 
+        <property name="ReceivedQuantity" column="[ReceivedQuantity]" type="Decimal" not-null="false" /> 
+        <property name="ReceivedDate" column="[ReceivedDate]" type="DateTime" not-null="false" /> 
+        <property name="ReceivedBy" column="[ReceivedBy]" type="Int32" not-null="false" /> 
+        <property name="CreatedDate" column="[CreatedDate]" type="DateTime" not-null="false" /> 
+        <property name="CreatedBy" column="[CreatedBy]" type="Int32" not-null="false" /> 
+        <property name="LastUpdateDate" column="[LastUpdateDate]" type="DateTime" not-null="false" /> 
+        <property name="LastUpdateBy" column="[LastUpdateBy]" type="Int32" not-null="false" /> 
+        <many-to-one name="Unit" class="PSCPortal.DB.Entities.Unit" not-null="false" >
+            <column name="[UnitID]" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

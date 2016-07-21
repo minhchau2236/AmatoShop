@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AAF84E32-F7B8-4C1A-AA0C-DEA3B2FB79C4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PSCPortal.DB</RootNamespace>
+    <AssemblyName>PSCPortal.DB</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\PSCPortal\dll\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\PSCPortal\dll\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTO\ProductDTO.cs" />
+    <Compile Include="Entities\Bill.cs" />
+    <Compile Include="Entities\BillDetail.cs" />
+    <Compile Include="Entities\BillPayment.cs" />
+    <Compile Include="Entities\BillPaymentPhoto.cs" />
+    <Compile Include="Entities\BillPhoto.cs" />
+    <Compile Include="Entities\BillStatuS.cs" />
+    <Compile Include="Entities\Brand.cs" />
+    <Compile Include="Entities\City.cs" />
+    <Compile Include="Entities\Collection.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\CustomerBaby.cs" />
+    <Compile Include="Entities\CustomerGroup.cs" />
+    <Compile Include="Entities\District..cs" />
+    <Compile Include="Entities\Log.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\ProductPhoto.cs" />
+    <Compile Include="Entities\ProductPrice.cs" />
+    <Compile Include="Entities\ProductReview.cs" />
+    <Compile Include="Entities\ShippingFeE.cs" />
+    <Compile Include="Entities\Supplier.cs" />
+    <Compile Include="Entities\SupplierProduct.cs" />
+    <Compile Include="Entities\Topic.cs" />
+    <Compile Include="Entities\Transaction.cs" />
+    <Compile Include="Entities\TransactionType.cs" />
+    <Compile Include="Entities\Unit.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserPhoto.cs" />
+    <Compile Include="Entities\Warehouse.cs" />
+    <Compile Include="Entities\WarehouseDetail.cs" />
+    <Compile Include="Entities\WarehousePayment.cs" />
+    <Compile Include="Entities\WarehousePaymentPhoto.cs" />
+    <Compile Include="Entities\WarehousePhoto.cs" />
+    <Compile Include="Helper\Photo.cs" />
+    <Compile Include="Helper\SessionManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PSCPortal.Framework\PSCPortal.Framework.csproj">
+      <Project>{831ffef7-5c7e-4452-8664-83efe560985d}</Project>
+      <Name>PSCPortal.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Entities\Bill.hbm.xml" />
+    <EmbeddedResource Include="Entities\BillDetail.hbm.xml" />
+    <EmbeddedResource Include="Entities\BillPayment.hbm.xml" />
+    <EmbeddedResource Include="Entities\BillPaymentPhoto.hbm.xml" />
+    <EmbeddedResource Include="Entities\BillPhoto.hbm.xml" />
+    <EmbeddedResource Include="Entities\BillStatus.hbm.xml" />
+    <EmbeddedResource Include="Entities\Brand.hbm.xml" />
+    <EmbeddedResource Include="Entities\City.hbm.xml" />
+    <EmbeddedResource Include="Entities\Collection.hbm.xml" />
+    <EmbeddedResource Include="Entities\Customer.hbm.xml" />
+    <EmbeddedResource Include="Entities\CustomerBaby.hbm.xml" />
+    <EmbeddedResource Include="Entities\CustomerGroup.hbm.xml" />
+    <EmbeddedResource Include="Entities\District.hbm.xml" />
+    <EmbeddedResource Include="Entities\Log.hbm.xml" />
+    <EmbeddedResource Include="Entities\Product.hbm.xml" />
+    <EmbeddedResource Include="Entities\ProductPhoto.hbm.xml" />
+    <EmbeddedResource Include="Entities\ProductPrice.hbm.xml" />
+    <EmbeddedResource Include="Entities\ProductReview.hbm.xml" />
+    <EmbeddedResource Include="Entities\ShippingFee.hbm.xml" />
+    <EmbeddedResource Include="Entities\Supplier.hbm.xml" />
+    <EmbeddedResource Include="Entities\SupplierProduct.hbm.xml" />
+    <EmbeddedResource Include="Entities\Topic.hbm.xml" />
+    <EmbeddedResource Include="Entities\Transaction.hbm.xml" />
+    <EmbeddedResource Include="Entities\TransactionType.hbm.xml" />
+    <EmbeddedResource Include="Entities\Unit.hbm.xml" />
+    <EmbeddedResource Include="Entities\User.hbm.xml" />
+    <EmbeddedResource Include="Entities\UserPhoto.hbm.xml" />
+    <EmbeddedResource Include="Entities\Warehouse.hbm.xml" />
+    <EmbeddedResource Include="Entities\WarehouseDetail.hbm.xml" />
+    <EmbeddedResource Include="Entities\WarehousePayment.hbm.xml" />
+    <EmbeddedResource Include="Entities\WarehousePaymentPhoto.hbm.xml" />
+    <EmbeddedResource Include="Entities\WarehousePhoto.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

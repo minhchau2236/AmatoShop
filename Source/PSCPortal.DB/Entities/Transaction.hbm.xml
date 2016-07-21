@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Baby.Data.Entities" assembly="PSCPortal.DB">
+  <class name="PSCPortal.DB.Entities.Transaction" table="[dbo].[tblTransactions]" >
+    <id name="TransactionID" column="[TransactionID]" type="Int32" >
+      <generator class="native" />
+    </id>
+    <property name="Amount" column="[Amount]" type="Decimal" not-null="false" />
+    <property name="AccountID" column="[AccountID]" type="Int32" not-null="true" />
+    <property name="Descriptions" column="[Descriptions]" type="String" not-null="false" />
+    <property name="TransactionDate" column="[TransactionDate]" type="DateTime" not-null="false" />
+    <property name="IsDeleted" column="[IsDeleted]" type="Boolean" not-null="false" />
+    <property name="IsBlocked" column="[IsBlocked]" type="Boolean" not-null="false" />
+    <property name="UserID" column="[UserID]" type="Int32" not-null="false" />
+    <many-to-one name="TransactionType" class="PSCPortal.DB.Entities.TransactionType" not-null="false" >
+      <column name="[TransactionTypeID]" />
+    </many-to-one>
+    <bag name="BillPaymentList" inverse="true" cascade="all-delete-orphan" lazy="true" >
+      <key>
+        <column name="[TransactionID]" />
+      </key>
+      <one-to-many class="PSCPortal.DB.Entities.BillPayment" />
+    </bag>
+    <bag name="WarehousePaymentList" inverse="true" cascade="all-delete-orphan" lazy="true" >
+      <key>
+        <column name="[TransactionID]" />
+      </key>
+      <one-to-many class="PSCPortal.DB.Entities.WarehousePayment" />
+    </bag>
+  </class>
+</hibernate-mapping>

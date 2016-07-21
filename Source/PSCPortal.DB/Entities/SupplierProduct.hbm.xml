@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Baby.Data.Entities" assembly="PSCPortal.DB">
+    <class name="PSCPortal.DB.Entities.SupplierProduct" table="[dbo].[tblSupplierProducts]" >
+        <composite-id>
+            <key-many-to-one name="Supplier" class="PSCPortal.DB.Entities.Supplier" >
+                <column name="[SupplierID]" />
+            </key-many-to-one>
+            <key-many-to-one name="Product" class="PSCPortal.DB.Entities.Product" >
+                <column name="[ProductID]" />
+            </key-many-to-one>
+        </composite-id>
+        <property name="Price" column="[Price]" type="Decimal" not-null="false" /> 
+        <property name="Note" column="[Note]" type="String" not-null="false" /> 
+    </class>
+</hibernate-mapping>

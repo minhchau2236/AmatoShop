@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Baby.Data.Entities" assembly="PSCPortal.DB">
+  <class name="PSCPortal.DB.Entities.User" table="[dbo].[tblUsers]" >
+    <id name="UserID" column="[UserID]" type="Int32" >
+      <generator class="native" />
+    </id>
+    <property name="CardNumber" column="[CardNumber]" type="AnsiString" not-null="false" length="100" />
+    <property name="FullName" column="[FullName]" type="String" not-null="false" length="255" />
+    <property name="Gender" column="[Gender]" type="Int32" not-null="false" />
+    <property name="DateOfBirth" column="[DateOfBirth]" type="String" not-null="false" length="100" />
+    <property name="PlaceOfBirth" column="[PlaceOfBirth]" type="String" not-null="false" length="255" />
+    <property name="ContactPhone" column="[ContactPhone]" type="String" not-null="false" length="255" />
+    <property name="ContactEmail" column="[ContactEmail]" type="String" not-null="false" length="255" />
+    <property name="ContactAddress" column="[ContactAddress]" type="String" not-null="false" length="1000" />
+    <property name="BankAccount" column="[BankAccount]" type="String" not-null="false" length="255" />
+    <property name="UserStatus" column="[UserStatus]" type="Int32" not-null="false" />
+    <property name="Pw" column="[PW]" type="AnsiString" not-null="false" length="50" />
+    <property name="WorkingFromDate" column="[WorkingFromDate]" type="DateTime" not-null="false" />
+    <property name="CreatedDate" column="[CreatedDate]" type="DateTime" not-null="false" />
+    <property name="CreatedBy" column="[CreatedBy]" type="Int32" not-null="false" />
+    <bag name="UserPhotoList" inverse="true" cascade="all-delete-orphan" lazy="true" >
+      <key>
+        <column name="[UserID]" />
+      </key>
+      <one-to-many class="PSCPortal.DB.Entities.UserPhoto" />
+    </bag>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Baby.Data.Entities" assembly="PSCPortal.DB">
+    <class name="PSCPortal.DB.Entities.ProductPhoto" table="[dbo].[tblProductPhotos]" >
+        <composite-id>
+            <key-property name="PhotoID" column="[PhotoID]" type="Int32" /> 
+            <key-many-to-one name="Product" class="PSCPortal.DB.Entities.Product" >
+                <column name="[ProductID]" />
+            </key-many-to-one>
+        </composite-id>
+        <property name="SortNo" column="[SortNo]" type="Int32" not-null="false" /> 
+        <property name="UserID" column="[UserID]" type="Int32" not-null="false" /> 
+    </class>
+</hibernate-mapping>

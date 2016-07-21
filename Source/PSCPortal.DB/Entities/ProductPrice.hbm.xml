@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Baby.Data.Entities" assembly="PSCPortal.DB">
+    <class name="PSCPortal.DB.Entities.ProductPrice" table="[dbo].[tblProductPrices]" >
+        <id name="ProductPriceID" column="[ProductPriceID]" type="Int32" >
+            <generator class="native" />
+        </id>
+        <property name="Price" column="[Price]" type="Decimal" not-null="false" /> 
+        <property name="AppliedFrom" column="[AppliedFrom]" type="DateTime" not-null="false" /> 
+        <property name="AppliedTo" column="[AppliedTo]" type="DateTime" not-null="false" /> 
+        <property name="CreatedDate" column="[CreatedDate]" type="DateTime" not-null="false" /> 
+        <property name="CreatedBy" column="[CreatedBy]" type="Int32" not-null="false" /> 
+        <property name="LastUpdateDate" column="[LastUpdateDate]" type="DateTime" not-null="false" /> 
+        <property name="LastUpdateBy" column="[LastUpdateBy]" type="Int32" not-null="false" /> 
+        <many-to-one name="Unit" class="PSCPortal.DB.Entities.Unit" not-null="false" >
+            <column name="[UnitID]" />
+        </many-to-one>
+        <many-to-one name="Product" class="PSCPortal.DB.Entities.Product" not-null="false" >
+            <column name="[ProductID]" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

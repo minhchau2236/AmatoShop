@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Baby.Data.Entities" assembly="PSCPortal.DB">
+    <class name="PSCPortal.DB.Entities.Supplier" table="[dbo].[tblSuppliers]" >
+        <id name="SupplierID" column="[SupplierID]" type="AnsiString" length="20" >
+            <generator class="assigned" />
+        </id>
+        <property name="SupplierName" column="[SupplierName]" type="String" not-null="false" length="255" /> 
+        <property name="Address" column="[Address]" type="String" not-null="false" length="1000" /> 
+        <property name="WebsiteUrl" column="[WebsiteUrl]" type="AnsiString" not-null="false" length="255" /> 
+        <property name="PhoneNumber" column="[PhoneNumber]" type="String" not-null="false" length="255" /> 
+        <property name="Fax" column="[Fax]" type="String" not-null="false" length="255" /> 
+        <property name="BankAccount" column="[BankAccount]" type="String" not-null="false" length="255" /> 
+        <property name="ContactName" column="[ContactName]" type="String" not-null="false" length="255" /> 
+        <property name="ContactEmail" column="[ContactEmail]" type="AnsiString" not-null="false" length="255" /> 
+        <property name="ContactPhone" column="[ContactPhone]" type="String" not-null="false" length="255" /> 
+        <property name="CreatedDate" column="[CreatedDate]" type="DateTime" not-null="false" /> 
+        <property name="CreatedBy" column="[CreatedBy]" type="Int32" not-null="false" /> 
+        <property name="LastUpdateDate" column="[LastUpdateDate]" type="DateTime" not-null="false" /> 
+        <property name="LastUpdateBy" column="[LastUpdateBy]" type="Int32" not-null="false" /> 
+        <bag name="SupplierProductList" inverse="true" cascade="all-delete-orphan" lazy="true" >
+            <key>
+                <column name="[SupplierID]" />
+            </key>
+            <one-to-many class="PSCPortal.DB.Entities.SupplierProduct" />
+        </bag>
+        <bag name="WarehouseList" inverse="true" cascade="all-delete-orphan" lazy="true" >
+            <key>
+                <column name="[SupplierID]" />
+            </key>
+            <one-to-many class="PSCPortal.DB.Entities.Warehouse" />
+        </bag>
+    </class>
+</hibernate-mapping>
